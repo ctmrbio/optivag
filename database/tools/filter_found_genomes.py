@@ -29,12 +29,16 @@ def parse_infile(infile):
                 strain=row[8]
                 if "=" in strain:
                     strain=strain.split("=")[1]
+                elif strain == "":
+                    strain=row[9]
                 seq_type=row[11]
                 url=row[19]
                 taxa = tax_id.split(" ")
                 
                 if(len(taxa)>2 and taxa[2] == "subsp."):
                     taxon = " ".join(taxa[0:4])
+                elif(len(taxa)>2 and taxa[2] == "genomosp."):
+                    taxon = " ".join(taxa[0:3])
                 else:
                     taxon = " ".join(taxa[0:2])
                 eachspecies.add(taxon)

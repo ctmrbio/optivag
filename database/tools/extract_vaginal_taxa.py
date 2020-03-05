@@ -40,6 +40,7 @@ def sort_taxa(wantedtaxa, wantedsamples, allwanted, taxfile, foundfile, notfound
                     binom = " ".join(parts[0:4])
                 elif genomospecies:
                     binom = " ".join(parts[0:3])
+                    print(binom)
                 else:
                     binom = " ".join(parts[0:2])
                 if(binom in wantedtaxa or sample in wantedsamples):
