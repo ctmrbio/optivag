@@ -35,8 +35,11 @@ def sort_taxa(wantedtaxa, wantedsamples, allwanted, taxfile, foundfile, notfound
                 taxon = row[7]
                 parts = taxon.split(" ")
                 subspecies = re.search("subsp", taxon)
+                genomospecies = re.search("genomosp", taxon)
                 if subspecies:
                     binom = " ".join(parts[0:4])
+                elif genomospecies:
+                    binom = " ".join(parts[0:3])
                 else:
                     binom = " ".join(parts[0:2])
                 if(binom in wantedtaxa or sample in wantedsamples):
