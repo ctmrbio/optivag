@@ -44,7 +44,7 @@ def sort_taxa(wantedtaxa, wantedsamples, allwanted, taxfile, foundfile, notfound
                     allwanted.discard(binom)
                     allwanted.discard(sample)
     for element in allwanted:
-        notfound.write(element + "\n")
+        notfound.write("Not found\t" + element + "\n")
             
 
 def main(assem_sum, taxlist, foundfile, notfoundfile):

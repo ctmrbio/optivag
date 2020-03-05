@@ -6,12 +6,12 @@ Diop	Acinetobacter baumannii
 Diop	Acinetobacter calcoaceticus
 Diop	Acinetobacter johnsonii
 Diop	Actinobaculum massiliense
-Diop	Actinomyces europaeus
+Diop	Gleimia europaeus
 Diop	Actinomyces graevenitzii
 Diop	Actinomyces hongkongensis
 Diop	Actinomyces israelii
 Diop	Actinomyces naeslundii
-Diop	Actinomyces neuii
+Diop	Winkia neuii
 PubMed	Actinomyces urinae
 Diop	Actinomyces urogenitalis
 Diop	Actinomyces viscosus
@@ -308,7 +308,7 @@ Diop	Leuconostoc garlicum
 Diop	Leuconostoc lactis
 Diop	Leuconostoc mesenteroides
 Diop	Listeria monocytogenes
-Diop	Lysinimonas kribbensis
+Diop	Pseudolysinimonas kribbensis
 Diop	Mageeibacillus indolicus
 Diop	Maribacter orientalis
 Diop	Marinomonas protea
@@ -376,7 +376,7 @@ Diop	Paracoccus yeei
 Diop	Parageobacillus thermoglucosidasius
 Diop	Parastreptomyces abscessus
 Diop	Parvimonas micra
-Diop	Pasteurella aerogenes
+Diop	[Pasteurella] aerogenes
 Diop	Pasteurella bettyae
 Diop	Pasteurella multocida
 Diop	Pectobacterium betavasculorum
