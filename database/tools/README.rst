@@ -9,7 +9,7 @@ RefSeq: ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_ref
 
 Genbank: ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt
   
-2. Use the script **extract_vaginal_taxa.py** and the file **bacteria_list.tsv** to extract the relevant genome headers from RefSeq:
+2. Use the script **extract_vaginal_taxa.py** and the file **bacteria_list.tsv** (found under `database/db/genome_info`) to extract the relevant genome headers from RefSeq:
 
   python extract_vaginal_taxa.py --assem assembly_summary_refseq.txt --touse bacteria_list.tsv --found refseq_genomes_found.tsv --notfound refseq_missing_genomes.tsv
 
@@ -21,7 +21,7 @@ Genbank: ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_ge
 
   python filter_found_genomes.py -i refseq_genomes_found.tsv -g get_refseq_genomes.sh -p get_refseq_proteins.sh -n 25
   
-6. Run the produced bash scripts.
+6. Run the produced bash scripts. These scripts may crash at unexpected symbols such as unpaired parentheses in the output genome name. As of right now these need to be manually removed.
 
 7. Repeat step 2 using the input files **assembly_summary_genbank.txt** and **refseq_missing_genomes.tsv** to expand your database with genomes still not available in RefSeq.
 
