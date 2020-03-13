@@ -52,8 +52,6 @@ def sort_reads(class_tab, unoise):
                     else:
                         human.add(row[0])
     # Sanity check in case Usearch did something weird:                
-    print(len(human))
-    print(len(nonhuman))
     nonhuman = nonhuman.difference(human)
     return(human, nonhuman)
 
@@ -63,7 +61,6 @@ def parse_fastq(infile, humanlist, buglist):
         record_list = list(SeqIO.to_dict(SeqIO.parse(handle, "fastq")))
         record_list = [record.replace('/1', '') for record in record_list]
         record_list = [record.replace('/2', '') for record in record_list]
-        print(record_list)
         record_set = set(record_list)
         #True positives: human reads NOT in record
         tpr = len(humanlist.difference(record_set))
