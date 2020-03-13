@@ -102,7 +102,7 @@ def select_genomes(eachspecies, ref_genomes, repr_genomes, chromosomes, scaffold
                     strain_name = strain.replace(" ", "_")
                     url = chromosomes[species][strain]
                     print_reference(outgenomes, outproteins, outtaxa, strain_name, url, tax_id)
-        if(species in scaffolds and genomes_found == 0):
+        if(species in scaffolds and genomes_found < maxgenomes):
             strains = scaffolds[species].keys()
             for strain in strains: 
                 if(genomes_found < maxgenomes):
