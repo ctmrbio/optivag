@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-""" Print numbers of true and false positives and negatives """
+""" Print numbers of true and false positives and negatives.
+Scales linearly with input file size, be careful."""
 __author__ = "Luisa W. Hugerth"
 __date__ = "2020"
+__version__ = "0.2"
 
-from sys import argv, exit
+from sys import argv, exit, stderr
 import csv
 import argparse
 import gzip
@@ -12,26 +14,26 @@ import re
 
 
 def parse_args():
-    """Scales linearly with input file size, be careful"""
-    parser = argparse.ArgumentParser(description=__doc__)
+    desc = f"{__doc__} Copyright (c) {__date__} {__author__}. Version v{__version__}."
+    parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("--table", "-t",
         dest="class_tab",
-        help="Unoise UC or SAM table mapping to human",
+        help="Unoise UC or SAM table mapping to human.",
     )
     parser.add_argument("--unoise",
         dest="unoise",
         action="store_true",
-        help="mapping table is in Unoise UC format",
+        help="Mapping table is in Unoise UC format.",
     )
     parser.add_argument("--sam",
         dest="unoise",
         action="store_false",
-        help="mapping table is in SAM format (default)",
+        help="Mapping table is in SAM format (default).",
     )
     parser.set_defaults(unoise=False)
     parser.add_argument("fastqs", 
         nargs="+", 
-        help="fastq files to quantify human and non-human reads"
+        help="Fastq files to quantify human and non-human reads."
     )
 
     if len(argv) < 3:
@@ -47,14 +49,14 @@ def sort_reads(class_tab, unoise):
     with open(class_tab) as csvfile:
         reader = csv.reader(csvfile, delimiter="\t")
         if unoise:
-            print("Parsing Unoise file...")
+            print("Parsing Unoise file...", file=stderr)
             for row in reader:
                 if row[0] == "H":
                     human.add(row[8])
                 else:
                     nonhuman.add(row[8])
         else:
-            print("Parsing SAM file...")
+            print("Parsing SAM file...", file=stderr)
             for row in reader:
                 if row[0][0] != "@":
                     if row[5] == "*":
@@ -67,49 +69,37 @@ def sort_reads(class_tab, unoise):
 
 
 def parse_fastq(infile, humanlist, buglist):
-    with gzip.open(infile, "rt") as handle:
-        record_list = list(SeqIO.to_dict(SeqIO.parse(handle, "fastq")))
+    print("Parsing", infile, file=stderr)
+    counts = {}
+    with gzip.open(infile, "rt") as fastq_file:
+        record_list = list(SeqIO.to_dict(SeqIO.parse(fastq_file, "fastq")))
         record_list = [record.replace("/1", "") for record in record_list]
         record_list = [record.replace("/2", "") for record in record_list]
         record_set = set(record_list)
-        # True positives: human reads NOT in record
-        tpr = len(humanlist.difference(record_set))
-        # False positives: bacterial reads NOT in record
-        fpr = len(buglist.difference(record_set))
-        # True negatives: bacterial reads in record
-        tnr = len(buglist & record_set)
-        # False negatives: human reads in record
-        fnr = len(humanlist & record_set)
-    return (tpr, fpr, tnr, fnr)
+        counts["tp"] = len(humanlist.difference(record_set))   # True positives: human reads NOT in record
+        counts["fp"] = len(buglist.difference(record_set))     # False positives: bacterial reads NOT in record
+        counts["tn"] = len(buglist.intersection(record_set))   # True negatives: bacterial reads in record
+        counts["fn"] = len(humanlist.intersection(record_set)) # False negatives: human reads in record
+    return counts
 
 
 def parse_fastqs(fastq_files, humanreads, bugreads):
-    tpr = [None] * len(fastq_files)
-    fpr = [None] * len(fastq_files)
-    tnr = [None] * len(fastq_files)
-    fnr = [None] * len(fastq_files)
-    for i in range(0, len(fastq_files)):
-        myfile = fastq_files[i]
-        print("Parsing", myfile)
-        tp, fp, tn, fn = parse_fastq(myfile, humanreads, bugreads)
-        tpr[i] = tp
-        fpr[i] = fp
-        tnr[i] = tn
-        fnr[i] = fn
-    return (tpr, fpr, tnr, fnr)
+    pos_neg_counts = defaultdict(lambda: defaultidict(list))
+    for fastq in fastq_files:
+        counts = parse_fastq(fastq, humanreads, bugreads)
+        pos_neg_counts[fastq].update(counts)
+    return pos_neg_counts
 
 
 def main(class_tab, unoise, fastq_files):
     human, nonhuman = sort_reads(class_tab, unoise)
-    TPR, FPR, TNR, FNR = parse_fastqs(fastq_files, human, nonhuman)
-    print("File\t" + "\t".join(fastq_files))
-    print("True positives\t" + "\t".join([str(elem) for elem in TPR]))
-    print("False positives\t" + "\t".join([str(elem) for elem in FPR]))
-    print("True negatives\t" + "\t".join([str(elem) for elem in TNR]))
-    print("False negatives\t" + "\t".join([str(elem) for elem in FNR]))
+    pos_neg_counts = parse_fastqs(fastq_files, human, nonhuman)
+    print("File\tTP\tFP\tTN\tFN")
+    for fastq, counts in pos_neg_counts.items():
+        print(f"{fastq}\t{counts['tp']}\t{counts['fp']}\t{counts['tn']}\t{counts['fn']}")
 
 
 if __name__ == "__main__":
     args = parse_args()
-    print(args)
+    print(args, file=stderr)
     main(args.class_tab, args.unoise, args.fastqs)

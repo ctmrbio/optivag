@@ -4,6 +4,7 @@ __author__ = "Luisa W. Hugerth"
 __date__ = "2020"
 
 from sys import argv, exit
+from collections import defaultdict
 import csv
 import argparse
 import gzip
@@ -27,44 +28,40 @@ def parse_args():
 
 
 def sort_reads(class_tab):
-    human = set()
+    human_reads = set()
     with open(class_tab) as csvfile:
         reader = csv.reader(csvfile, delimiter="\t")
         for row in reader:
             if row[0] == "H":
-                human.add(row[8])
-    return human
+                human_reads.add(row[8])
+    return human_reads
 
 
 def parse_fastq(infile, humanlist):
-    human_counts = 0
-    nothuman_counts = 0
+    counts = defaultdict(int)
     with gzip.open(infile, "rt") as handle:
         for record in SeqIO.parse(handle, "fastq"):
             if record.id in humanlist:
-                human_counts += 1
+                counts["human"] += 1
             else:
-                nothuman_counts += 1
-    return (human_counts, nothuman_counts)
+                counts["nothuman"] += 1
+    return counts
 
 
-def parse_fastqs(fastq_files, humanreads):
-    humancounts = [None] * len(fastq_files)
-    nothumancounts = [None] * len(fastq_files)
-    for i in range(0, len(fastq_files)):
-        myfile = fastq_files[i]
-        h, n = parse_fastq(myfile, humanreads)
-        humancounts[i] = h
-        nothumancounts[i] = n
-    return (humancounts, nothumancounts)
+def get_total_counts(fastq_files, humanreads):
+    total_counts = defaultdict(lambda: defaultdict(list))
+    for fastq in fastq_files:
+        counts = parse_fastq(fastq, humanreads)
+        total_counts[fastq].update(counts)
+    return total_counts
 
 
 def main(class_tab, fastq_files):
-    human = sort_reads(class_tab)
-    Nhuman, Nnot = parse_fastqs(fastq_files, human)
-    print("File\t" + "\t".join(fastq_files))
-    print("Human_counts\t" + "\t".join([str(elem) for elem in Nhuman]))
-    print("Not_human_counts\t" + "\t".join([str(elem) for elem in Nnot]))
+    human_reads = sort_reads(class_tab)
+    total_counts = get_total_counts(fastq_files, human_reads)
+    print("File\tHuman\tNot_human")
+    for fastq, counts in total_counts.items():
+        print(f"{fastq}\t{counts['human']}\t{counts['nothuman']}")
 
 
 if __name__ == "__main__":
