@@ -2,6 +2,9 @@
 """ Uses the assembly summary and the list of downloaded genomes to create
 a taxonomy file compatible with Bracken.
 """
+__author__ = "Luisa Hugerth"
+__date__ = "2020"
+__version = "0.2"
 
 from sys import argv, exit
 import argparse
@@ -39,7 +42,7 @@ def main(taxa, genomes, outfile):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Combines sequence headers with the appropriate taxonomy code"
+        description=f"{__doc__} Copyright (c) {__date__} {__author__}."
     )
     parser.add_argument("-t", "--taxa", 
         help="TSV file connecting each genome to its NCBI tax_id."

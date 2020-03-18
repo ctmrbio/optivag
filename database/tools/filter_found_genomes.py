@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-""" Filters a subset of RefSeq's "ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/assembly_summary.txt" 
+""" Filters a subset of RefSeq's ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/assembly_summary.txt
 to keep a maximum number of genomes per species, privileging reference genomes.
 """
+__author__ = "Luisa Hugerth"
+__date__ = "2020"
+__version__ = "0.2"
 
 from sys import argv, exit
 from collections import defaultdict
@@ -158,21 +161,21 @@ def main(infile, outgenomes, outproteins, outtaxa, maxgenomes):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Extract the relevant rows from RefSeq:s assembly_summary.txt"
+        description=f"{__doc__} Copyright (c) {__date__} {__author__}."
     )
     parser.add_argument("-i", "--infile", 
         help="Subset of assembly_summary with selected taxa.",
     )
-    parser.add_argument("-g", "--outgenomes",
+    parser.add_argument("-g", "--out-genomes",
         help="sh file to be created for getting genome information.",
     )
-    parser.add_argument("-p", "--outproteins",
+    parser.add_argument("-p", "--out-proteins",
         help="sh file to be created for getting protein information.",
     )
-    parser.add_argument("-t", "--outtaxa", 
+    parser.add_argument("-t", "--out-taxa", 
         help="tsv file to be created with the taxon id for each file."
     )
-    parser.add_argument("-n", "--maxgenomes",
+    parser.add_argument("-n", "--max-genomes",
         type=int,
         default=10,
         help="Maximum number of genomes per sub/species",
@@ -184,4 +187,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main(args.infile, args.outgenomes, args.outproteins, args.outtaxa, args.maxgenomes)
+    main(args.infile, args.out_genomes, args.out_proteins, args.out_taxa, args.max_genomes)
