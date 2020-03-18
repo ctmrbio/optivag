@@ -70,19 +70,13 @@ def parse_infile(infile):
 
 
 def print_reference(outgenomes, outproteins, outtaxa, strain_name, url, tax_id):
-    with open(outgenomes, "a+") as g, open(outproteins, "a+") as p, open(
-        outtaxa, "a+"
-    ) as t:
+    with open(outgenomes, "a+") as g, open(outproteins, "a+") as p, open(outtaxa, "a+") as t:
         parts = url.split("/")
         identifier = parts[-1]
         g.write("wget " + url + "/" + identifier + "_genomic.fna.gz\n")
-        g.write(
-            "mv " + identifier + "_genomic.fna.gz " + strain_name + "_genomic.fna.gz\n"
-        )
+        g.write("mv " + identifier + "_genomic.fna.gz " + strain_name + "_genomic.fna.gz\n")
         p.write("wget " + url + "/" + identifier + "_protein.faa.gz\n")
-        p.write(
-            "mv " + identifier + "_protein.faa.gz " + strain_name + "_protein.faa.gz\n"
-        )
+        p.write("mv " + identifier + "_protein.faa.gz " + strain_name + "_protein.faa.gz\n")
         t.write(strain_name + "_genomic.fna\t" + tax_id + "\n")
 
 
@@ -147,9 +141,7 @@ def select_genomes(
 
 
 def main(infile, outgenomes, outproteins, outtaxa, maxgenomes):
-    eachspecies, ref_genomes, repr_genomes, chromosomes, scaffolds, taxa_id = parse_infile(
-        infile
-    )
+    eachspecies, ref_genomes, repr_genomes, chromosomes, scaffolds, taxa_id = parse_infile(infile)
     select_genomes(
         eachspecies,
         ref_genomes,
