@@ -6,6 +6,7 @@ __date__ = "2020"
 __version__ = "0.2"
 
 from sys import argv, exit, stderr
+from collections import defaultdict
 import csv
 import argparse
 import gzip
@@ -84,7 +85,7 @@ def parse_fastq(infile, humanlist, buglist):
 
 
 def parse_fastqs(fastq_files, humanreads, bugreads):
-    pos_neg_counts = defaultdict(lambda: defaultidict(list))
+    pos_neg_counts = defaultdict(lambda: defaultdict(list))
     for fastq in fastq_files:
         counts = parse_fastq(fastq, humanreads, bugreads)
         pos_neg_counts[fastq].update(counts)
@@ -101,5 +102,4 @@ def main(class_tab, unoise, fastq_files):
 
 if __name__ == "__main__":
     args = parse_args()
-    print(args, file=stderr)
     main(args.class_tab, args.unoise, args.fastqs)
