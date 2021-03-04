@@ -14,3 +14,15 @@ Megasphaera hutchinsoni
 Megasphaera lorna
 Megasphaera vaginalis
 Vaginisenegalia massiliensis
+
+## Species with updated taxonomy
+## Old tax	New tax
+Lactobacillus pentosus	Lactiplantibacillus pentosus
+[Bacteroides] coagulans	Ezakiella coagulans
+Eubacterium nodatum	[Eubacterium] nodatum
+Cytophaga xylanolytica	Breznakibacter xylanolyticus
+Gleimia europaeus	Gleimia europaea
+Actinomyces hongkongensis	Pauljensenia hongkongensis
+Eubacterium saphenum	[Eubacterium] saphenum
+Staphylococcus sciuri	Mammaliicoccus sciuri 
+Eubacterium sulci	[Eubacterium] sulci

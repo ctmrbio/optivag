@@ -6,9 +6,9 @@ Diop	Acinetobacter baumannii
 Diop	Acinetobacter calcoaceticus
 Diop	Acinetobacter johnsonii
 Diop	Actinobaculum massiliense
-Diop	Gleimia europaeus
+Diop	Gleimia europaea
 Diop	Actinomyces graevenitzii
-Diop	Actinomyces hongkongensis
+Diop	Pauljensenia hongkongensis
 Diop	Actinomyces israelii
 Diop	Actinomyces naeslundii
 Diop	Winkia neuii
@@ -74,7 +74,7 @@ Diop	Bacillus sporothermodurans
 Diop	Bacillus subtilis
 Diop	Bacillus wakoensis
 Diop	Bacteroides barnesiae
-Diop	[Bacteroides] coagulans
+Diop	Ezakiella coagulans
 Diop	Bacteroides dorei
 Diop	Bacteroides faecis
 Diop	Bacteroides fragilis
@@ -179,7 +179,7 @@ Diop	Curtobacterium flaccumfaciens
 Diop	Cutibacterium acnes
 Diop	Cutibacterium avidum
 Diop	Cutibacterium granulosum
-Diop	Cytophaga xylanolytica
+Diop	Breznakibacter xylanolytica
 Diop	Dakarella massiliensis
 Diop	Deinococcus radiophilus
 Diop	Delftia tsuruhatensis
@@ -216,11 +216,11 @@ Diop	Escherichia coli
 Diop	Escherichia fergusonii
 Diop	Eubacterium brachy
 Diop	[Eubacterium] eligens
-Diop	Eubacterium nodatum
+Diop	[Eubacterium] nodatum
 Diop	[Eubacterium] rectale
-Diop	Eubacterium saphenum
+Diop	[Eubacterium] saphenum
 Diop	[Eubacterium] siraeum
-Diop	Eubacterium sulci
+Diop	[Eubacterium] sulci
 Diop	[Eubacterium] yurii
 Diop	Exiguobacterium acetylicum
 Diop	Ezakiella massiliensis
@@ -296,7 +296,7 @@ Diop	Lactobacillus nagelii
 Diop	Lactobacillus oris
 Diop	Lactobacillus panis
 Diop	Lactobacillus paracasei
-Diop	Lactobacillus pentosus
+Diop	Lactiplantibacillus pentosus
 Diop	Lactobacillus plantarum
 Diop	Lactobacillus pontis
 Diop	Lactobacillus raoultii
@@ -562,7 +562,7 @@ Diop	Staphylococcus piscifermentans
 Diop	Staphylococcus saccharolyticus
 Diop	Staphylococcus saprophyticus
 Diop	Staphylococcus schleiferi
-Diop	Staphylococcus sciuri
+Diop	Mammaliicoccus sciuri
 Diop	Staphylococcus simiae
 Diop	Staphylococcus simulans
 Diop	Staphylococcus warneri
