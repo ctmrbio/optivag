@@ -33,7 +33,12 @@ and `GenBank <ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summa
    automatically download the relevant genomes for you (in our example, no more
    than 25 per species)::
 
-    python filter_found_genomes.py -i refseq_genomes_found.tsv -g get_refseq_genomes.sh -p get_refseq_proteins.sh -t refseq_taxa.tsv -n 25
+    python filter_found_genomes.py \
+     -i refseq_genomes_found.tsv \
+     -g get_refseq_genomes.sh \
+     -p get_refseq_proteins.sh \
+     -t refseq_taxa.tsv \
+     -n 25
   
 6. Run the produced bash scripts. These scripts may crash at unexpected symbols
    such as unpaired parentheses in the output genome name. As of right now
