@@ -43,15 +43,14 @@ def sort_taxa(wanted_taxa, wanted_samples, all_wanted, taxfile, foundfile, notfo
                     binom = " ".join(parts[0:4])
                 elif genomospecies:
                     binom = " ".join(parts[0:3])
-                    print(binom)
                 else:
                     binom = " ".join(parts[0:2])
                 if binom in wanted_taxa or sample in wanted_samples:
                     bacfound.write("\t".join(row) + "\n")
                     all_wanted.discard(binom)
                     all_wanted.discard(sample)
-    for element in all_wanted:
-        notfound.write("Not found\t" + element + "\n")
+        for element in all_wanted:
+            notfound.write("Not found\t" + element + "\n")
 
 
 def main(assem_sum, taxlist, foundfile, notfoundfile):
