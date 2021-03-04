@@ -1,0 +1,16 @@
+## New species included
+Criibacterium bergeronii
+Gardnerella leopoldii
+Gardnerella piotii
+Gardnerella swidsinskii
+Sneathia vaginalis
+Janibacter massiliensis
+Lachnocurva vaginae
+Lactobacillus mulieris
+Limosilactobacillus portuensis
+Limosilactobacillus urinaemulieris
+Limosilactobacillus vaginalis
+Megasphaera hutchinsoni
+Megasphaera lorna
+Megasphaera vaginalis
+Vaginisenegalia massiliensis
