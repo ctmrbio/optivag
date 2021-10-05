@@ -13,13 +13,13 @@ and `GenBank <ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summa
   
 2. Use the script **extract_vaginal_taxa.py** and the file
    **bacteria_list.tsv** (found under `database/db/genome_info`) to extract the
-   relevant genome headers from RefSeq::
+   relevant genome headers from RefSeq. Adjust the version number and output folder as appropriate::
 
-    python extract_vaginal_taxa.py \
+    python optivag/database/tools/extract_vaginal_taxa.py \
      --assem assembly_summary_refseq.txt \
-     --touse bacteria_list.tsv \
-     --found refseq_genomes_found.tsv \
-     --notfound refseq_missing_genomes.tsv
+     --to-use optivag/database/db/genome_info/vXX/bacteria_list.tsv \
+     --found outdir/refseq_genomes_found.tsv \
+     --not-found outdir/refseq_missing_genomes.tsv
 
 3. Go through your missing genomes and assess whether there are taxa with
    recently updated taxonomy or any typos in your bacteria_list.tsv. If you
