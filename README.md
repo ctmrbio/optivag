@@ -29,6 +29,8 @@ _genome_info:_
 
 3 scripts, required for recreating the shotgun database from the files in _genome_info_
 
+For instructions on how to create your local database, look [here](https://github.com/ctmrbio/optivag/tree/master/database/tools)
+
 ### Amplicon simulation
 A single script, extracts amplicons and reads of a given length, given forward and reverse primer sequences 
 
