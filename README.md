@@ -2,7 +2,10 @@
 # Tools and databases for annotating vaginal communities
 
 ## Citation
-If using any part of this repo, please refer to _Hugerth et al, submitted_
+If using any part of this repo, please refer to:
+
+Luisa W. Hugerth, Marcela Pereira, Yinghua Zha, Maike Seifert, Vilde Kaldhusdal, Fredrik Boulund, Maria C. Krog, , Zahra Bashir, Marica Hamsten, Emma Fransson, Henriette Svarre Nielsen, Ina Schuppe-Koistinen, and Lars Engstrand (2018) [_Assessment of In Vitro and In Silico Protocols for Sequence-Based Characterization of the Human Vaginal Microbiome_](https://journals.asm.org/doi/full/10.1128/mSphere.00448-20) mSphere, 5(6): e00448-20
+
 
 ## Contents
 ### Database
