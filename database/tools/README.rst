@@ -68,6 +68,8 @@ tools to enable this.
     download to its NCBI tax_id::
 
     python map_seq_tax.py -t all_taxa.tsv -g path/to/mygenomes
+    
+    You might at this point discover other special characters, such as "/", and yes, this has to be fixed manually.
   
 12. You're now ready to follow `Kraken2's <https://ccb.jhu.edu/software/kraken2/>`_ 
     and `_Bracken's <https://ccb.jhu.edu/software/bracken/>`_ manual pages! You 
