@@ -1,0 +1,54 @@
+### New species and genomes added
+##  These are supposed to capture a wider variety of 
+##  BV-associated Clostridiales with no standing name
+Clostridiales bacterium KA0013
+Clostridiales bacterium KA001344
+Clostridiales bacterium KA00274
+Clostridiales bacterium S8 87-8
+Clostridiales bacterium S9 HS-16
+Clostridiales bacterium S9 PR-1
+Lachnoaerobaculum sp. S6-P3
+Lachnoanaerobaculum saburreum
+Lachnospiraceae bacterium DNF00160
+Peptostreptococcus sp. MV1
+
+### Species with updated taxonomy
+##  Note not only the major overhaul of Lactobacillus species,
+##  there are also changes in genera Atopobium and Sneathia
+#Old name	New name
+Atopobium parvulum	Lancefieldella parvulum
+Atopobium rimae	Lancefieldella rimae
+Atopobium vaginae	Fannyhessea vaginae
+Bacillus indicus	Metabacillus indicus
+Bacillus shackletonii	Margalitia shackletonii 
+Bacillus sporothermodurans	Heyndrickxia sporothermodurans
+Bacillus wakoensis 	Alkalihalobacillus wakoensis
+Bacteroides barnesiae	Phocaeicola barnesiae
+Bacteroides dorei	Phocaeicola dorei
+Bacteroides vulgatus	Phocaeicola vulgatus
+Corynebacterium fournierii	Corynebacterium fournieri
+Corynebacterium urinapleomorphum	Corynebacterium urinipleomorphum
+Eubacterium brachy	[Eubacterium] brachy
+Lactobacillus agilis	Ligilactobacillus agilis
+Lactobacillus brevis	Levilactobacillus brevis
+Lactobacillus casei	Lacticaseibacillus casei
+Lactobacillus coleohominis	Limosilactobacillus coleohominis
+Lactobacillus curvatus	Latilactobacillus curvatus
+Lactobacillus fermentum	Limosilactobacillus fermentum
+Lactobacillus kimchicus	Schleiferilactobacillus kimchicus
+Lactobacillus mucosae	Limosilactobacillus mucosae
+Lactobacillus nagelii	Liquorilactobacillus nagelii
+Lactobacillus oris	Limosilactobacillus oris
+Lactobacillus panis	Limosilactobacillus panis
+Lactobacillus paracasei	Lacticaseibacillus paracasei
+Lactobacillus plantarum	Lactiplantibacillus plantarum
+Lactobacillus pontis	Limosilactobacillus pontis
+Lactobacillus raoultii	Lentilactobacillus raoultii 
+Lactobacillus reuteri	Limosilactobacillus reuteri
+Lactobacillus rhamnosus	Lacticaseibacillus rhamnosus
+Lactobacillus ruminis	Ligilactobacillus ruminis
+Lactobacillus salivarius	Ligilactobacillus salivarius
+Lactobacillus vaginalis	Limosilactobacillus vaginalis
+Mycoplasma fermentans	Mycoplasmopsis fermentans
+Pseudopropionibacterium propionicum	Arachnia propionica
+Sneathia amnii	Sneathia vaginalis
