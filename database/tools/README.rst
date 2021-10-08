@@ -13,13 +13,13 @@ and `GenBank <ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summa
   
 2. Use the script **extract_vaginal_taxa.py** and the file
    **bacteria_list.tsv** (found under `database/db/genome_info`) to extract the
-   relevant genome headers from RefSeq::
+   relevant genome headers from RefSeq. Adjust the version number and output folder as appropriate::
 
-    python extract_vaginal_taxa.py \
+    python optivag/database/tools/extract_vaginal_taxa.py \
      --assem assembly_summary_refseq.txt \
-     --touse bacteria_list.tsv \
-     --found refseq_genomes_found.tsv \
-     --notfound refseq_missing_genomes.tsv
+     --to-use optivag/database/db/genome_info/vXX/bacteria_list.tsv \
+     --found outdir/refseq_genomes_found.tsv \
+     --not-found outdir/refseq_missing_genomes.tsv
 
 3. Go through your missing genomes and assess whether there are taxa with
    recently updated taxonomy or any typos in your bacteria_list.tsv. If you
@@ -33,7 +33,12 @@ and `GenBank <ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summa
    automatically download the relevant genomes for you (in our example, no more
    than 25 per species)::
 
-    python filter_found_genomes.py -i refseq_genomes_found.tsv -g get_refseq_genomes.sh -p get_refseq_proteins.sh -t refseq_taxa.tsv -n 25
+    python filter_found_genomes.py \
+     -i refseq_genomes_found.tsv \
+     -g get_refseq_genomes.sh \
+     -p get_refseq_proteins.sh \
+     -t refseq_taxa.tsv \
+     -n 25
   
 6. Run the produced bash scripts. These scripts may crash at unexpected symbols
    such as unpaired parentheses in the output genome name. As of right now
@@ -63,6 +68,8 @@ tools to enable this.
     download to its NCBI tax_id::
 
     python map_seq_tax.py -t all_taxa.tsv -g path/to/mygenomes
+    
+    You might at this point discover other special characters, such as "/", and yes, this has to be fixed manually.
   
 12. You're now ready to follow `Kraken2's <https://ccb.jhu.edu/software/kraken2/>`_ 
     and `_Bracken's <https://ccb.jhu.edu/software/bracken/>`_ manual pages! You 
