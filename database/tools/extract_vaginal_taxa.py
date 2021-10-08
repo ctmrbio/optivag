@@ -39,9 +39,10 @@ def sort_taxa(wanted_taxa, wanted_samples, all_wanted, taxfile, foundfile, notfo
                 parts = taxon.split(" ")
                 subspecies = re.search("subsp", taxon)
                 genomospecies = re.search("genomosp", taxon)
+                draft = re.search(" bacterium ", taxon)
                 if subspecies:
                     binom = " ".join(parts[0:4])
-                elif genomospecies:
+                elif genomospecies or draft:
                     binom = " ".join(parts[0:3])
                 else:
                     binom = " ".join(parts[0:2])
